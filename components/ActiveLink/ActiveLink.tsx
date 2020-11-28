@@ -1,8 +1,8 @@
-import React, { useCallback } from 'react';
+import React, { ReactNode, useCallback } from 'react';
 import { useRouter } from 'next/router';
 
 type ActiveLinkProps = {
-  children: any;
+  children: ReactNode;
   href: string;
 };
 
