@@ -19,3 +19,5 @@ const Render = () => (
   <ActiveLink href="/about">See About!</ActiveLink>
 );
 ```
+## Attributes
+ActiveLink supports both next/link and react/a attributes.
