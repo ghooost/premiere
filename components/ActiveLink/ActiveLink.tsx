@@ -1,21 +1,37 @@
-import React, { ReactNode, useCallback } from 'react';
-import { useRouter } from 'next/router';
+import React, { ComponentProps } from 'react';
+import Link, { LinkProps } from 'next/link';
 
-type ActiveLinkProps = {
-  children: ReactNode;
-  href: string;
-};
+type AProps = ComponentProps<'a'>;
 
-const ActiveLink = ({ children, href }: ActiveLinkProps) => {
-  const router = useRouter();
-  const handleClick = useCallback((e) => {
-    e.preventDefault();
-    router.push(href);
-  }, [href]);
+export interface ActiveLinkProps
+  extends LinkProps,
+  Omit<AProps, keyof LinkProps>{}
+
+const ActiveLink = ({
+  href,
+  as,
+  replace,
+  scroll,
+  shallow,
+  passHref,
+  prefetch,
+  locale,
+  children,
+  ...rest
+}: ActiveLinkProps) => {
+  const linkProps = {
+    href,
+    as,
+    replace,
+    scroll,
+    shallow,
+    passHref,
+    prefetch,
+    locale,
+  } as LinkProps;
   return (
-    <a href={href} onClick={handleClick}>
-      {children}
-    </a>
+  // eslint-disable-next-line react/jsx-props-no-spreading, react/destructuring-assignment
+    <Link {...linkProps}><a {...rest}>{children}</a></Link>
   );
 };
 

@@ -24,7 +24,12 @@ export default function Home() {
           <code className={styles.code}>pages/index.js</code>
         </p>
         <p className={styles.description}>
-          <ActiveLink href="/about">See About!</ActiveLink>
+          <ActiveLink
+            href="/about"
+            className="test"
+          >
+            See About!
+          </ActiveLink>
         </p>
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
